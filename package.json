@@ -1,15 +1,30 @@
 {
   "name": "discord-random-bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Discord bot to make decisions based on randomness.",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ."
   },
   "author": "Emir Güvenni",
   "license": "MIT",
+  "homepage": "",
+  "bugs": {
+    "url": "https://github.com/EmirGuvenni/discord-random-bot/issues"
+  },
+  "keywords": [
+    "discord",
+    "random",
+    "bot"
+  ],
+  "repository": {
+    "url": "https://github.com/EmirGuvenni/discord-random-bot"
+  },
   "dependencies": {
+    "ansi-colors": "^4.1.1",
     "discord.js": "^12.4.1",
-    "mongoose": "^5.10.13"
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.10.13",
+    "table": "^6.0.3"
   }
 }
