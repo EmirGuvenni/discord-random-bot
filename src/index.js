@@ -7,7 +7,7 @@ const {registerCommands, registerEvents, registerHandlers} = require('./registry
 (async() => {
     await client.login(process.env.BOT_TOKEN);
     client.commands = new Map();
-    client.plugins = new Map();
+    client.handlers = new Map();
     await registerEvents(client, './events');
     await registerCommands(client, './commands');
     await registerHandlers(client, './handlers');
