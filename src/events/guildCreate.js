@@ -1,7 +1,6 @@
 const embed = require('discord.js').MessageEmbed;
 
 module.exports = async(client, guild) => {
-    console.log(guild.ownerID);
     let owner = await client.users.cache.get(guild.ownerID);
 
     let joinEmbed = new embed()
