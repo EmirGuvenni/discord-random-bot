@@ -12,7 +12,7 @@ async function registerCommands(client, dir) {
     for(let file of files) {
         let stat = await fs.lstat(path.join(__dirname, dir, file));
         if(stat.isDirectory())
-            registerCommands(client, path.join(dir, file));
+            await registerCommands(client, path.join(dir, file));
         else {
             if(file.endsWith(".js")) {
                 let CommandName = file.substring(0, file.indexOf(".js"));
@@ -31,6 +31,7 @@ async function registerCommands(client, dir) {
                     }
                 }
                 catch(err) {
+                    console.log(err);
                     commandStatus.push(
                         [`${c.white(`${CommandName}`)}`, `${c.bgRedBright('Failed')}`, '']
                     );
@@ -46,7 +47,7 @@ async function registerEvents(client, dir) {
     for(let file of files) {
         let stat = await fs.lstat(path.join(__dirname, dir, file));
         if(stat.isDirectory())
-            registerEvents(client, path.join(dir, file));
+            await registerEvents(client, path.join(dir, file));
         else {
             if(file.endsWith(".js")) {
                 let eventName = file.substring(0, file.indexOf(".js"));
@@ -73,7 +74,7 @@ async function registerHandlers(client, dir) {
     for(let file of files) {
         let stat = await fs.lstat(path.join(__dirname, dir, file));
         if(stat.isDirectory())
-            registerHandlers(client, path.join(dir, file));
+            await registerHandlers(client, path.join(dir, file));
         else {
             if(file.endsWith(".js")) {
                 let handlerName = file.substring(0, file.indexOf(".js"));
@@ -85,6 +86,7 @@ async function registerHandlers(client, dir) {
                     }
                 }
                 catch(err) {
+                    console.log(err);
                     handlerStatus.push([`${c.white(`${handlerName}`)}`, `${c.bgRedBright('Failed')}`, '']);
                 }
             }
