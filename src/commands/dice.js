@@ -22,7 +22,7 @@ module.exports = {
             reqStats.save();
         }
         catch(err) {
-
+            client.handlers.get("error")(client, err, __filename);
         }
     },
     aliases: ["roll"],
