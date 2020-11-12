@@ -12,6 +12,7 @@ module.exports = {
             .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL())
             .setTitle("Selected")
             .setDescription(`Selection: **${args[selection]}**`);
+        // Send the embed
         await message.channel.send(selectEmbed);
 
         //  Save stats

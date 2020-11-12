@@ -8,6 +8,7 @@ module.exports = {
             .setColor(0xFCFCFC)
             .setTitle("You could invite me from here.")
             .setDescription(process.env.HOMEPAGE);
+        // Send the embed
         await message.channel.send(invEmbed);
 
         //  Save stats

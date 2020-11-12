@@ -7,6 +7,7 @@ module.exports = {
     run: async(client, message) => {
         // Get a random card
         let card = new Card();
+        // Get the card image
         let attachment = new MessageAttachment(`./src/images/cards/${card.img}`, `${card.img}`);
 
         // Create an embed

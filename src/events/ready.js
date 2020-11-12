@@ -4,8 +4,10 @@ const {commandStatus, eventStatus, handlerStatus} = require('../registry');
 const Stats = require('../database/models/stats');
 
 module.exports = async(client) => {
+    // Set bot activity
     await client.user.setActivity("/random help");
 
+    // Load the module table
     await loadTable(commandStatus, 50);
     console.log("\n");
     await loadTable(eventStatus, 50);
@@ -13,6 +15,7 @@ module.exports = async(client) => {
     await loadTable(handlerStatus, 50);
     console.log("\n");
 
+    // Create a stats document if doesn't already exists
     if(!await Stats.findOne()){
         try{
             const newStats = new Stats();
@@ -24,7 +27,7 @@ module.exports = async(client) => {
         }
     }
 }
-
+// Configure module table
 function loadTable(arr, interval) {
     let fn, i = 0, stream = createStream(tableConfig);
     return new Promise((resolve) => {
