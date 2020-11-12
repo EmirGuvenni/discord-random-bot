@@ -1,10 +1,6 @@
 const fs = require('fs').promises;
-const c = require('ansi-colors');
 const path = require('path');
 const {checkCommandModule,checkModule, checkProperties} = require('./validate');
-const commandStatus = [[`${c.bold('Command')}`, `${c.bold('Status')}`, `${c.bold('Description')}`]];
-const eventStatus =   [[`${c.bold('Event')}`, `${c.bold('Status')}`, `${c.bold('Description')}`]];
-const handlerStatus =  [[`${c.bold('Handler')}`, `${c.bold('Status')}`, `${c.bold('Description')}`]];
 
 async function registerCommands(client, dir) {
     let files = await fs.readdir(path.join(__dirname, dir));
@@ -24,17 +20,11 @@ async function registerCommands(client, dir) {
                             client.commands.set(CommandName, CommandModule.run);
                             if(aliases.length !== 0)
                                 aliases.forEach(alias => client.commands.set(alias, CommandModule.run));
-                            commandStatus.push(
-                                [`${c.cyan(`${CommandName}`)}`, `${c.bgGreenBright('Success')}`, `${CommandModule.description}`]
-                            )
                         }
                     }
                 }
                 catch(err) {
                     console.log(err);
-                    commandStatus.push(
-                        [`${c.white(`${CommandName}`)}`, `${c.bgRedBright('Failed')}`, '']
-                    );
                 }
             }
         }
@@ -54,14 +44,9 @@ async function registerEvents(client, dir) {
                 try {
                     let eventModule = require(path.join(__dirname, dir, file));
                     client.on(eventName, eventModule.bind(null, client));
-                    eventStatus.push(
-                        [`${c.cyan(`${eventName}`)}`, `${c.bgGreenBright('Success')}`, `${eventModule.description}`]
-                    )
                 }
                 catch(err) {
-                    eventStatus.push(
-                        [`${c.white(`${eventName}`)}`, `${c.bgRedBright('Failed')}`, '']
-                    );
+                    console.log(err);
                 }
             }
         }
@@ -82,22 +67,17 @@ async function registerHandlers(client, dir) {
                     let handlerModule = require(path.join(__dirname, dir, file));
                     if(checkModule(handlerName, handlerModule)) {
                         client.handlers.set(handlerName, handlerModule.run);
-                        handlerStatus.push([`${c.cyan(`${handlerName}`)}`, `${c.bgGreenBright('Success')}`, `${handlerModule.description}`])
                     }
                 }
                 catch(err) {
                     console.log(err);
-                    handlerStatus.push([`${c.white(`${handlerName}`)}`, `${c.bgRedBright('Failed')}`, '']);
                 }
             }
         }
     }
 }
 
-module.exports = { 
-    commandStatus, 
-    eventStatus, 
-    handlerStatus,
+module.exports = {
     registerEvents, 
     registerCommands,
     registerHandlers,

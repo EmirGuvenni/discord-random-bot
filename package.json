@@ -8,7 +8,7 @@
   },
   "author": "Emir Güvenni",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://random.botsons.com",
   "bugs": {
     "url": "https://github.com/EmirGuvenni/discord-random-bot/issues"
   },
@@ -21,10 +21,8 @@
     "url": "https://github.com/EmirGuvenni/discord-random-bot"
   },
   "dependencies": {
-    "ansi-colors": "^4.1.1",
     "discord.js": "^12.4.1",
     "dotenv": "^8.2.0",
-    "mongoose": "^5.10.13",
-    "table": "^6.0.3"
+    "mongoose": "^5.10.13"
   }
 }
