@@ -3,6 +3,18 @@ const Stats = require('../database/models/stats');
 
 module.exports = {
     run: async (client, message, args) => {
+        // Check if there are any arguments
+        if(!args[0]) {
+            // Create a warning embed
+            let checkEmbed = new embed()
+                .setColor(0xFCFCFC)
+                .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL())
+                .setTitle("Error")
+                .setDescription("There are no arguments to select from.");
+            // Send the embed
+            return message.channel.send(checkEmbed);
+        }
+
         // Get a random argument index
         let selection = Math.floor(Math.random() * args.length);
 
