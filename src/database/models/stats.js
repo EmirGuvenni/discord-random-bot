@@ -8,7 +8,7 @@ const botSchema = mongoose.Schema({
     card: {type: Number, min: 0, default: 0, required: true},
     range: {type: Number, min: 0, default: 0, required: true},
     select: {type: Number, min: 0, default: 0, required: true},
-    random: {type: Number, min: 0, default: 0, required: true},
+    number: {type: Number, min: 0, default: 0, required: true},
     invite: {type: Number, min: 0, default: 0, required: true}
 });
 
