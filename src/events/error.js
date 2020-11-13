@@ -1,9 +1,16 @@
 const Stats = require('../database/models/stats');
 
 module.exports = async(client, error) => {
-    console.error(error);
+    await (async() => {
+        // Log the error to console
+        console.error(error);
 
-    const reqStats = await Stats.findOne();
-    reqStats.errs++;
-    reqStats.save();
+        // Save stats
+        const reqStats = await Stats.findOne();
+        reqStats.errs++;
+        await reqStats.save();
+    })();
+
+    // End the process
+    process.exit(1);
 }
