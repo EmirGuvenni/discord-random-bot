@@ -5,7 +5,7 @@ module.exports = {
     run: async(client, message, args) => {
         let num;
         // Check if there's a provided number
-        if(!args[0]){
+        if(!args[0]) {
             num = Math.floor((Math.random() * 10) + 1);
             // Create a warning embed
             let checkEmbed = new embed()
@@ -16,7 +16,7 @@ module.exports = {
             // Send the embed
             return message.channel.send(checkEmbed);
         }
-        else if(isNaN(args[0])){
+        else if(isNaN(args[0])) {
             // Create a warning embed
             let warnEmbed = new embed()
                 .setColor(0xFCFCFC)

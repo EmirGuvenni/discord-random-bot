@@ -3,7 +3,7 @@ const Stats = require('../database/models/stats');
 const {MessageAttachment} = require('discord.js');
 
 module.exports = {
-    run: async (client, message) => {
+    run: async(client, message) => {
         // Flip a coin
         let coin;
         (Math.random() <= 0.5) ? coin = "heads" : coin = "tails";

@@ -2,7 +2,7 @@ const embed = require('discord.js').MessageEmbed;
 const Stats = require('../database/models/stats');
 
 module.exports = {
-    run: async (client, message) => {
+    run: async(client, message) => {
         // Create the invite embed
         let invEmbed = new embed()
             .setColor(0xFCFCFC)
