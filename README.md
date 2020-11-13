@@ -8,7 +8,6 @@ This is a Discord bot mainly made for entertainment and education.
 * /random help: Sends the help embed.
 * /random invite: Sends a link to bots homepage.
 * /random number: Picks a random number between 1 and 10 or the provided number.
-* /random range: Picks a random number between the range user has given.
 * /random select: Picks a random argument from the array.
 
 ## Links

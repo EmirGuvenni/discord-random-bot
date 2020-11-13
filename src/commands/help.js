@@ -13,7 +13,6 @@ module.exports = {
                 "**flip:** Flips a coin.",
                 "**invite:** Sends a link to bots homepage.",
                 "**number:** Picks a random number between 1 and 10 or the provided number.",
-                "**range:** Picks a random number between the range user has given.",
                 "**select:** Picks a random argument from the array."
             ]);
         // Send the embed
