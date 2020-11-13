@@ -2,7 +2,7 @@ const embed = require('discord.js').MessageEmbed;
 const Stats = require('../database/models/stats');
 
 module.exports = {
-    run: async (client, message, args) => {
+    run: async(client, message, args) => {
         // Check if there are any arguments
         if(!args[0]) {
             // Create a warning embed
