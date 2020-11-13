@@ -16,7 +16,7 @@ module.exports = {
             .setColor(0xFCFCFC)
             .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL())
             .setTitle("Flipped a coin")
-            .setDescription(`Coin: ${coin}`)
+            .setDescription(`Coin: **${coin}**`)
             .attachFiles(attachment)
             .setImage(`attachment://${coin}.png`);
         // Send the embed
