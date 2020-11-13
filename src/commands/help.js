@@ -11,9 +11,10 @@ module.exports = {
                 "**card:** Picks a random card.",
                 "**dice:** Rolls the dice.",
                 "**flip:** Flips a coins.",
-                "**invite:** Sends a link to bots homepage",
-                "**range:** Returns a random number between the range user has given.",
-                "**select:** Picks a random argument from the array"
+                "**invite:** Sends a link to bots homepage.",
+                "**number:** Picks a random number between 1 and 10 or the provided number.",
+                "**range:** Picks a random number between the range user has given.",
+                "**select:** Picks a random argument from the array."
             ]);
         // Send the embed
         await message.channel.send(helpEmbed);
