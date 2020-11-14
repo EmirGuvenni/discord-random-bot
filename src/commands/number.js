@@ -4,19 +4,8 @@ const Stats = require('../database/models/stats');
 module.exports = {
     run: async(client, message, args) => {
         let num;
-        // Check if there's a provided number
-        if(!args[0]) {
-            num = Math.floor((Math.random() * 10) + 1);
-            // Create a warning embed
-            let checkEmbed = new embed()
-                .setColor(0xFCFCFC)
-                .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL())
-                .setTitle("Picked a number")
-                .setDescription(`Number: **${num}**`);
-            // Send the embed
-            return message.channel.send(checkEmbed);
-        }
-        else if(isNaN(args[0])) {
+        
+        if(args[0] && isNaN(args[0])) {
             // Create a warning embed
             let warnEmbed = new embed()
                 .setColor(0xFCFCFC)
@@ -26,7 +15,11 @@ module.exports = {
             // Send the embed
             return message.channel.send(warnEmbed);
         }
-        num = Math.floor((Math.random() * args[0]) + 1);
+        // Check if there's a provided number
+        else if(!args[0])
+            num = Math.floor((Math.random() * 10) + 1);
+        else
+            num = Math.floor((Math.random() * args[0]) + 1);
 
         // Create an embed
         let checkEmbed = new embed()
