@@ -27,4 +27,5 @@ console.log("Starting Random Botsons...");
             client.handlers.get("error")(client, err, __filename);
         }
     }
+    console.log("Random Botsons is ready");
 })();
